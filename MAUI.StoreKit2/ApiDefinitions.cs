@@ -204,6 +204,13 @@ namespace StoreKit2
         string TransactionId { get; }
 
         /// <summary>
+        /// The original transaction ID.
+        /// </summary>
+        // @property (readonly, copy, nonatomic) NSString * _Nonnull originalTransactionId;
+        [Export("originalTransactionId")]
+        string OriginalTransactionId { get; }
+
+        /// <summary>
         /// The product ID.
         /// </summary>
         // @property (readonly, copy, nonatomic) NSString * _Nonnull productId;
@@ -237,5 +244,12 @@ namespace StoreKit2
         // @property (readonly, copy, nonatomic) NSString * _Nullable revocationReason;
         [NullAllowed, Export("revocationReason")]
         string RevocationReason { get; }
+
+        /// <summary>
+        /// The JWS representation of the verification result.
+        /// </summary>
+        // @property (readonly, copy, nonatomic) NSString * _Nullable jwsRepresentation;
+        [NullAllowed, Export("jwsRepresentation")]
+        string JwsRepresentation { get; }
     }
 }

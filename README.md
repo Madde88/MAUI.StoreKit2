@@ -1,4 +1,4 @@
-[![NuGet Version](https://img.shields.io/nuget/v/StoreKit2)](https://www.nuget.org/packages/StoreKit2)
+[![NuGet Version](https://img.shields.io/nuget/v/Madde88.StoreKit2)](https://github.com/Madde88/MAUI.StoreKit2/packages)
 
 # MAUI StoreKit2 IAP Module
 
@@ -42,13 +42,13 @@ This library enables .NET MAUI applications to leverage Apple's modern StoreKit2
 ### NuGet Package
 
 ```bash
-dotnet add package StoreKit2
+dotnet add package Madde88.StoreKit2
 ```
 
 Or add to your `.csproj` file:
 
 ```xml
-<PackageReference Include="StoreKit2" Version="1.0.1" />
+<PackageReference Include="Madde88.StoreKit2" Version="1.0.2-madde88.1" />
 ```
 
 ### Manual Installation
@@ -141,6 +141,16 @@ paymentManager.PurchaseProductWithProductId("com.yourapp.product1", null, (succe
 });
 ```
 
+Or include an app account token for server-side user linkage:
+
+```csharp
+var appAccountToken = Guid.Parse("00000000-0000-0000-0000-000000000001");
+paymentManager.PurchaseProductWithProductId("com.yourapp.product1", new NSUuid(appAccountToken.ToString()), (success, error) =>
+{
+    // handle result
+});
+```
+
 ### 5. Restore Purchases
 
 ```csharp
@@ -213,11 +223,13 @@ Represents a completed transaction.
 #### Properties
 
 - `TransactionId`: Unique transaction identifier
+- `OriginalTransactionId`: Original transaction identifier for renewals/restores
 - `ProductId`: Associated product identifier
 - `PurchaseDate`: Date of purchase
 - `IsUpgraded`: Whether this is an upgrade transaction
 - `RevocationDate`: Date of revocation (if applicable)
 - `RevocationReason`: Reason for revocation (if applicable)
+- `JwsRepresentation`: Signed JWS payload for server-side verification
 
 ## Product Types
 
