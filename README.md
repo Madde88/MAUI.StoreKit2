@@ -1,4 +1,4 @@
-[![NuGet Version](https://img.shields.io/nuget/v/K9Tracker.StoreKit2)](https://github.com/Madde88/MAUI.StoreKit2/packages)
+[![NuGet Version](https://img.shields.io/nuget/v/Madde88.StoreKit2)](https://github.com/Madde88/MAUI.StoreKit2/packages)
 
 # MAUI StoreKit2 IAP Module
 
@@ -42,13 +42,13 @@ This library enables .NET MAUI applications to leverage Apple's modern StoreKit2
 ### NuGet Package
 
 ```bash
-dotnet add package K9Tracker.StoreKit2
+dotnet add package Madde88.StoreKit2
 ```
 
 Or add to your `.csproj` file:
 
 ```xml
-<PackageReference Include="K9Tracker.StoreKit2" Version="1.0.2-k9tracker.1" />
+<PackageReference Include="Madde88.StoreKit2" Version="1.0.2-madde88.1" />
 ```
 
 ### Manual Installation
