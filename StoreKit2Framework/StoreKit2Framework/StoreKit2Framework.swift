@@ -52,18 +52,22 @@ import StoreKit
 @available(iOS 15.0, *)
 @objc public class PaymentTransaction: NSObject {
     @objc public let transactionId: String
+    @objc public let originalTransactionId: String
     @objc public let productId: String
     @objc public let purchaseDate: Date
     @objc public let isUpgraded: Bool
     @objc public let revocationDate: Date?
     @objc public let revocationReason: String?
-    
-    public init(transaction: Transaction) {
+    @objc public let jwsRepresentation: String?
+
+    public init(transaction: Transaction, jwsRepresentation: String? = nil) {
         self.transactionId = String(transaction.id)
+        self.originalTransactionId = String(transaction.originalID)
         self.productId = transaction.productID
         self.purchaseDate = transaction.purchaseDate
         self.isUpgraded = transaction.isUpgraded
         self.revocationDate = transaction.revocationDate
+        self.jwsRepresentation = jwsRepresentation
         
         if let reason = transaction.revocationReason {
             switch reason {
@@ -141,7 +145,9 @@ import StoreKit
                 case .success(let verification):
                     switch verification {
                     case .verified(let transaction):
-                        let paymentTransaction = PaymentTransaction(transaction: transaction)
+                        let paymentTransaction = PaymentTransaction(
+                            transaction: transaction,
+                            jwsRepresentation: verification.jwsRepresentation)
                         await MainActor.run {
                             self.delegate?.paymentManagerDidFinishPurchase?(productId, transaction: paymentTransaction)
                             completion(true, nil)
@@ -226,7 +232,10 @@ import StoreKit
         for await result in Transaction.currentEntitlements {
             switch result {
             case .verified(let transaction):
-                transactions.append(PaymentTransaction(transaction: transaction))
+                transactions.append(
+                    PaymentTransaction(
+                        transaction: transaction,
+                        jwsRepresentation: result.jwsRepresentation))
             case .unverified(_, _):
                 continue
             }
@@ -240,7 +249,9 @@ import StoreKit
             switch result {
             case .verified(let transaction):
                 if transaction.productID == productId {
-                    return PaymentTransaction(transaction: transaction)
+                    return PaymentTransaction(
+                        transaction: transaction,
+                        jwsRepresentation: result.jwsRepresentation)
                 }
             case .unverified(_, _):
                 continue
@@ -254,7 +265,9 @@ import StoreKit
             for await result in Transaction.updates {
                 switch result {
                 case .verified(let transaction):
-                    let paymentTransaction = PaymentTransaction(transaction: transaction)
+                    let paymentTransaction = PaymentTransaction(
+                        transaction: transaction,
+                        jwsRepresentation: result.jwsRepresentation)
                     await MainActor.run {
                         self.delegate?.paymentManagerDidFinishPurchase?(transaction.productID, transaction: paymentTransaction)
                     }
