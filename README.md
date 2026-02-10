@@ -48,7 +48,7 @@ dotnet add package Madde88.StoreKit2
 Or add to your `.csproj` file:
 
 ```xml
-<PackageReference Include="Madde88.StoreKit2" Version="1.0.2-madde88.1" />
+<PackageReference Include="Madde88.StoreKit2" Version="1.0.2-madde88.2" />
 ```
 
 ### Manual Installation
@@ -59,6 +59,18 @@ Or add to your `.csproj` file:
    <ProjectReference Include="path/to/MAUI.StoreKit2/MAUI.StoreKit2.csproj" />
    ```
 3. Build and run
+
+### Rebuild Native XCFramework (Maintainers)
+
+When updating native Swift code, rebuild the packaged XCFramework before packing/publishing:
+
+```bash
+./scripts/build-xcframework.sh
+```
+
+This produces `MAUI.StoreKit2/StoreKit2Framework.xcframework` with both:
+- `ios-arm64` (device)
+- `ios-arm64_x86_64-simulator` (simulator)
 
 ## Quick Start
 

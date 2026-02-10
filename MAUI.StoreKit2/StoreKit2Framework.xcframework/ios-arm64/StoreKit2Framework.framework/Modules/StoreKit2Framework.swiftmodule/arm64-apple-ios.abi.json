@@ -704,6 +704,56 @@
           },
           {
             "kind": "Var",
+            "name": "originalTransactionId",
+            "printedName": "originalTransactionId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@StoreKit2Framework@objc(cs)PaymentTransaction(py)originalTransactionId",
+            "mangledName": "$s18StoreKit2Framework18PaymentTransactionC08originalE2IdSSvp",
+            "moduleName": "StoreKit2Framework",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@StoreKit2Framework@objc(cs)PaymentTransaction(im)originalTransactionId",
+                "mangledName": "$s18StoreKit2Framework18PaymentTransactionC08originalE2IdSSvg",
+                "moduleName": "StoreKit2Framework",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "productId",
             "printedName": "productId",
             "children": [
@@ -985,9 +1035,75 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "jwsRepresentation",
+            "printedName": "jwsRepresentation",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@StoreKit2Framework@objc(cs)PaymentTransaction(py)jwsRepresentation",
+            "mangledName": "$s18StoreKit2Framework18PaymentTransactionC17jwsRepresentationSSSgvp",
+            "moduleName": "StoreKit2Framework",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@StoreKit2Framework@objc(cs)PaymentTransaction(im)jwsRepresentation",
+                "mangledName": "$s18StoreKit2Framework18PaymentTransactionC17jwsRepresentationSSSgvg",
+                "moduleName": "StoreKit2Framework",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(transaction:)",
+            "printedName": "init(transaction:jwsRepresentation:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -1000,11 +1116,26 @@
                 "name": "Transaction",
                 "printedName": "StoreKit.Transaction",
                 "usr": "s:8StoreKit11TransactionV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:18StoreKit2Framework18PaymentTransactionC11transactionAC0A3Kit0E0V_tcfc",
-            "mangledName": "$s18StoreKit2Framework18PaymentTransactionC11transactionAC0A3Kit0E0V_tcfc",
+            "usr": "s:18StoreKit2Framework18PaymentTransactionC11transaction17jwsRepresentationAC0A3Kit0E0V_SSSgtcfc",
+            "mangledName": "$s18StoreKit2Framework18PaymentTransactionC11transaction17jwsRepresentationAC0A3Kit0E0V_SSSgtcfc",
             "moduleName": "StoreKit2Framework",
             "declAttributes": [
               "AccessControl"
@@ -1731,9 +1862,9 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/yutingli1123\/git\/MAUI.StoreKit2\/StoreKit2Framework\/StoreKit2Framework\/StoreKit2Framework.swift",
+      "filePath": "\/Users\/madde\/Projects\/MAUI.StoreKit2\/StoreKit2Framework\/StoreKit2Framework\/StoreKit2Framework.swift",
       "kind": "Dictionary",
-      "offset": 2987,
+      "offset": 3235,
       "length": 3,
       "value": "[]"
     }
